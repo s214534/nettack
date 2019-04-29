@@ -1,0 +1,6 @@
+#### CASE N=1, n_perturbations=degree/2, strong=True on cora ####
+# of tested nodes:114
+# of correct classified nodes in the first dataset:93, accuracy:0.8157894736842105
+# of correct classified nodes in the second dataset:102, accuracy:0.8947368421052632
+# of successful attacks in the first dataset:77, accuracy:0.8279569892473119
+# of successful attacks in the second dataset:80, accuracy:0.7843137254901961

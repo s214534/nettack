@@ -1,0 +1,6 @@
+#### CASE N=1, n_perturbations=degree/2, strong=True on citeseer ####
+# of tested nodes:101
+# of correct classified nodes in the first dataset:90, accuracy:0.8910891089108911
+# of correct classified nodes in the second dataset:91, accuracy:0.900990099009901
+# of successful attacks in the first dataset:55, accuracy:0.6111111111111112
+# of successful attacks in the second dataset:59, accuracy:0.6483516483516484

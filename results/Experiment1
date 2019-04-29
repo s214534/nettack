@@ -1,0 +1,6 @@
+#### CASE N=2, n_perturbations=degree/2, strong=False ####
+# of tested nodes:89
+# of correct classified nodes in the first dataset:75, accuracy:0.8426966292134831
+# of correct classified nodes in the second dataset:73, accuracy:0.8202247191011236
+# of successful attacks in the first dataset:47, accuracy:0.6266666666666667
+# of successful attacks in the second dataset:43, accuracy:0.589041095890411
