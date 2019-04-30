@@ -90,7 +90,7 @@ class Experiment:
                 if p_hat_2[i][i]<0:
                     p_hat_2[i][i]=0
                 sum_not_i=sum(self.z_obs!=i)
-                for j in range(num_communities):
+                for j in range(self.num_communities):
                     if j!=i:
                         p_hat_2[i][j]=p_hat_2[i][j]+n/sum_not_i
                         p_hat_2[j][i]=p_hat_2[i][j]

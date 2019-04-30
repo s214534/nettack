@@ -38,9 +38,9 @@ for dataset in datasets:
                 exp.split_dataset()
                 exp.find_vertices_to_attack()
                 exp.pre_run()
-                exp.run(limit=1)
+                exp.run()
                 exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(2))
-                exp.run(limit=1,factor=1)
+                exp.run(factor=1)
                 exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(1))
                 if community[0]==0 and strong :
                     n=2
