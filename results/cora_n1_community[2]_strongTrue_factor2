@@ -1,0 +1,6 @@
+#### CASE: community=[2] N=1, n_perturbations=degree/2, strong=True on cora ####
+# of tested nodes:500
+# of correct classified nodes in the first dataset:493, accuracy:0.986
+# of correct classified nodes in the second dataset:499, accuracy:0.998
+# of successful attacks in the first dataset:274, accuracy:0.5557809330628803
+# of successful attacks in the second dataset:118, accuracy:0.23647294589178355
