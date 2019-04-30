@@ -1,0 +1,6 @@
+#### CASE: community=[0] N=2, n_perturbations=degree/1, strong=False on citeseer ####
+# of tested nodes:91
+# of correct classified nodes in the first dataset:16, accuracy:0.17582417582417584
+# of correct classified nodes in the second dataset:9, accuracy:0.0989010989010989
+# of successful attacks in the first dataset:10, accuracy:0.625
+# of successful attacks in the second dataset:8, accuracy:0.8888888888888888
