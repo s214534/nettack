@@ -177,7 +177,7 @@ class Experiment:
         self.gcn_before_2.train(self.split_train, self.split_val, self._Z_obs_hat, print_info=False)
 
         
-    def run(self, factor=2, limit=500, direct_attack = True, n_influencers = 1, perturb_features = False, perturb_structure = True,verbose = False):
+    def run(self, factor=2, limit=250, direct_attack = True, n_influencers = 1, perturb_features = False, perturb_structure = True,verbose = False):
         self.factor=factor
         self.correct=0
         self.mis=0
@@ -187,8 +187,8 @@ class Experiment:
         self.succ_att=0
         self.mod_succ_att=0
         i=0
-        
-        for u in self.attacked_nodes:  
+        self.tot = min(self.tot, limit)
+        for u in self.attacked_nodes:
             if i ==limit:
                 break
             if i%5 == 0:

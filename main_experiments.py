@@ -11,7 +11,9 @@ import warnings
 warnings.filterwarnings("ignore")
 gpu_id = None # set this to your desired GPU ID if you want to use GPU computations (only for the GCN/surrogate training)
 #One can also repeat the experiment with the dataset cora.
-datasets=['citeseer', 'cora']
+
+#datasets=['citeseer', 'cora']
+datasets=['cora']
 #community=range(num_communities)
 strong=True
 n=2
@@ -24,22 +26,24 @@ for dataset in datasets:
     communities=[]
     if dataset is 'cora':
         communities.append(list([2]))
-        communities.append(list([5]))
+        #communities.append(list([5]))
     else:
         communities.append(list([0]))
         communities.append(list([1]))
         communities.append(list([3]))
         
     for community in communities:
-        for strong in [True,False]:
-            for n in range(2):
+        for strong in [True]:
+            for n in range(1):
+                n=0
+
                 exp.compute_p_hat_2(n+1, strong, community)
                 exp.generate_SBM()
                 exp.split_dataset()
                 exp.find_vertices_to_attack()
                 exp.pre_run()
-                exp.run()
-                exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(2))
+                #exp.run()
+                #exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(2))
                 exp.run(factor=1)
                 exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(1))
                 if community[0]==0 and strong :
