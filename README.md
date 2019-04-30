@@ -6,6 +6,11 @@ Our project is based on the article [Adversarial Attacks on Neural Networks for 
 The main point of our project is to study the behavior of the model and the effectiveness of the adversarial attacks according to the edge densities between and within communities. We studied this problem through Stochastic Block Models. 
 
 This implementation is written in Python 3 and uses Tensorflow for the GCN learning.
+
+## Installation
+`conda env create -f environment.yml`
+`conda activate project`
+
 ## Requirements
 * `numpy`
 * `scipy`
@@ -58,7 +63,7 @@ Sen, Prithviraj, Namata, Galileo, Bilgic, Mustafa, Getoor, Lise, Galligher, Bria
 *Collective classification in network data.*   
 AI magazine, 29(3):93, 2008.
 
-
+Detailed information about the 2 datasets can be found in the `cora` and `citeseer` folders and in our project report.
 ### Graph Convolutional Networks
 Our implementation of the GCN algorithm is based on the authors' implementation,
 available on GitHub [here](https://github.com/tkipf/gcn).
