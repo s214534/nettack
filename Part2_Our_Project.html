@@ -13300,7 +13300,7 @@ In other words, for every unordered couple of nodes  $v \in C_i, w \in C_j$, we 
 <p>Once we generated the 2 random graphs, we can study their properties. First, as anticipated, we compute few statistics in order to compare them with the original datasets. Then, we try the GCN and the Nettack on them.</p>
 <p>Since we want to study the performance according to the structure, we performed structure attacks. In particular, we focused on <b>direct evasion structure attacks</b>.  <br>
 In any case, we observed that, since  in  <i> CiteSeer </i> and <i> Cora </i> the average degrees are respectively around 3.5 and 4 while the number of features per node are 3703 and 1433, the Nettack always prefer to perform structure attacks when it is not constrained. This is due to the fact that the authors set the same budget for both the features and structure attacks. Moreover, in the article, the authors set $\Delta=d_{v_0}+2$, where $d_{v_0}$ is the degree of the node $v_0$, that is a low budget for a feature attack (for these datasets) but it is quite high for a structure attacks since it usually allows to overturn the neighborhood. Since we agreed on the fact that effectiveness of the attack depends on the degree of the attacked node, we decided to set  $\Delta=\frac{d_{v_0}}{2}$ for the majority of the experiments. We also tried the effect of strong attack by trying $\Delta=d_{v_0}$. In the experiments, one can tell which budget was used from the term $factor$ and set it as he prefers ($\Delta=\frac{d_{v_0}}{factor}$). As anticipated, the main other parameters are $N$ ($N=1$ or $N=2$), $strong$ (<code>True</code> or <code>False</code>) and the $communities$ list. The experiments can be repeated for <code>cora</code> and <code>citeseer</code>.</p>
-<p>once we set all the parameters, we model both the datasets and we try to predict all the nodes in the "changed" communities. If the prediction is correct, we attack the node and see if the attack is successfull. We record the number of nodes correctly classified nodes and the number of successfully attacked nodes in the 2 datasets.<br>
+<p>Once we set all the parameters, we model both the datasets and we try to predict all the nodes in the "changed" communitiesthat have at least degree=2 (in order to have at least one perturbation in the attack). If the prediction is correct, we attack the node and see if the attack is successfull. We record the number of nodes correctly classified nodes and the number of successfully attacked nodes in the 2 datasets.<br>
 At the end of the experiments, the results are print on a file with the format <code>dataset_n#_community#_strong#_factor#</code>.</p>
 
 </div>
@@ -13317,11 +13317,14 @@ At the end of the experiments, the results are print on a file with the format <
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The results are contained in the <code>results</code> folder. Although we did not manage to run all the possible cases, we observed some different behaviors.</p>
-<p>The accuracy usually increases when a community is more "closed" and in general the attacks are less effective, but this happens mostly when in the community there  a greater number of nodes and when the attack is not that strong. This is the case of the following example:</p>
+<p>By running some experiments, we found that a higher “within-community” edges probability usually increases the accuracy of the model. It also descreases the effectiveness of the attack, but just under some assumptions. Results are indeed very affected by the number of nodes in the community, by the starting accuracy and by the budget of the attack.</p>
+<p>In our experiments, we tried some parameter settings and we observed some behaviors, but, in order to make general conclusions, many more experiments should be tried.</p>
+<p>The results are similar for the 2 datasets.</p>
+<p>Below, some example of results:</p>
 <p><img src="result_example.PNG" alt="Drawing" style="width: 500px;"/></p>
-<p>On the other hand, when we are dealing with a lower number of nodes and a lower accuracy, the effects of the community behavior on the attacks are less evident:</p>
 <p><img src="result_example_2.PNG" alt="Drawing" style="width: 500px;"/></p>
-<p>Results also changed based on the datasets. In general, it is harder to comment results when the communities are less "closed" since they are effected by the randomness.</p>
+<p><img src="result_example_3.PNG" alt="Drawing" style="width: 500px;"/></p>
+<p><img src="result_example_4.PNG" alt="Drawing" style="width: 500px;"/></p>
 
 </div>
 </div>
