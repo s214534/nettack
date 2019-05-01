@@ -25,15 +25,15 @@ for dataset in datasets:
     #    communities.append([i])
     communities=[]
     if dataset is 'cora':
-        communities.append(list([2]))
-        #communities.append(list([5]))
+        #communities.append(list([2]))
+        communities.append(list([4]))
     else:
         communities.append(list([0]))
         communities.append(list([1]))
         communities.append(list([3]))
         
     for community in communities:
-        for strong in [True]:
+        for strong in [True, False]:
             for n in range(1):
                 n=0
 
@@ -44,8 +44,10 @@ for dataset in datasets:
                 exp.pre_run()
                 #exp.run()
                 #exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(2))
-                exp.run(factor=1)
-                exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(1))
-                if community[0]==0 and strong :
-                    n=2
+                for factor in [0.5, 1, 2]:
+                    exp.run(factor=factor)
+
+                    exp.print_file(dataset+"_n"+str(n+1)+"_community"+str(community)+"_strong"+str(strong)+"_factor"+str(factor))
+                if community[0] == 0 and strong :
+                    n = 2
                

@@ -110,14 +110,20 @@ class Experiment:
     
     def preprocessing2(self):
         #we select just the largest connected component    
-        lcc_1= utils.largest_connected_components(self.A_obs_hat)
-        lcc_2= utils.largest_connected_components(self.A_obs_hat_2)
+        lcc_1 = utils.largest_connected_components(self.A_obs_hat)
+        lcc_2 = utils.largest_connected_components(self.A_obs_hat_2)
         lcc=intersection(lcc_1,lcc_2)
+
         self._A_obs_hat = self.A_obs_hat[lcc][:,lcc]
         self._A_obs_hat_2 = self.A_obs_hat_2[lcc][:,lcc]
         self._X_obs_hat = self.X_obs[lcc].astype('float32')
         self._z_obs_hat = self.z_obs[lcc]
-        return  self._A_obs_hat.shape[0]
+
+        #self._A_obs_hat = self.A_obs_hat
+        #self._A_obs_hat_2 = self.A_obs_hat_2
+        #self._X_obs_hat = self.X_obs.astype('float32')
+        #self._z_obs_hat = self.z_obs
+        return self._A_obs_hat.shape[0]
     
     def split_dataset(self, seed=15, unlabeled_share = 0.8, val_share = 0.1 ):
         train_share = 1 - unlabeled_share - val_share
